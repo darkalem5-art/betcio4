@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Girisi.dev – Yazılımcılar için tamamen ÜCRETSİZ statik site ve frontend projesi deploy platformu. Tek tıkla xx.girisi.dev alt alanında yayınla!"/>
+  <title>Girisi.dev – Ücretsiz Deploy Platformu</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #5b21b6;
+      --primary-light: #8b5cf6;
+      --dark: #0f172a;
+      --gray: #1e293b;
+      --light: #f8fafc;
+      --border: #334155;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.4);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--primary-light); }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: var(--primary-light); }
+
+    main { margin-top: 100px; padding: 0 5%; }
+
+    .hero {
+      text-align: center;
+      padding: 100px 0 140px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #c084fc, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--primary-light);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(139,92,246,0.4);
+      transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(139,92,246,0.5);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 0 5%;
+    }
+
+    .feature-card {
+      background: rgba(30,41,59,0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover { transform: translateY(-10px); }
+
+    .feature-card i {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, #a78bfa, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .how-it-works {
+      background: rgba(30,41,59,0.4);
+      padding: 100px 5%;
+      text-align: center;
+    }
+
+    .how-it-works h2 {
+      font-size: 3rem;
+      margin-bottom: 4rem;
+      color: white;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 250px;
+      color: #cbd5e1;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--primary-light);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0 auto 1.5rem;
+    }
+
+    footer {
+      background: #0f172a;
+      padding: 80px 5% 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: #64748b;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    .footer-links a:hover { color: var(--primary-light); }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1.1rem; }
+      header { padding: 1rem 5%; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">Girisi<span>.dev</span></a>
+    <nav>
+      <a href="#nasil-calisir">Nasıl Çalışır?</a>
+      <a href="#ozellikler">Özellikler</a>
+      <a href="mailto:info@girisi.dev">İletişim</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Ücretsiz Deploy Platformu</h1>
+      <p>
+        Girisi.dev ile statik web sitelerini, React, Vue, Next.js, Vite, Hugo, Jekyll gibi tüm frontend projelerini <strong>tamamen ücretsiz</strong> ve <strong>1 dakikada</strong> yayınla!<br>
+        Kendi alt alan adın: <code style="background:#1e293b;padding:4px 10px;border-radius:8px;">projen.girisi.dev</code>
+      </p>
+      <a href="https://github.com/login/oauth/authorize?client_id=YOUR_GITHUB_CLIENT_ID" class="cta-button">
+        <i class="fab fa-github"></i> GitHub ile Hemen Başla
+      </a>
+      <p style="margin-top:2rem; color:#94a3b8;">
+        Kredi kartı gerekmez • Sınırsız proje • Anında deploy
+      </p>
+    </section>
+
+    <section class="features" id="ozellikler">
+      <div class="feature-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Anında Deploy</h3>
+        <p>GitHub reposunu bağla, push yap → 30 saniye içinde canlı!</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-infinity"></i>
+        <h3>Sınırsız Proje & Trafik</h3>
+        <p>Ne proje limiti ne bant genişliği kotası. Tamamen ücretsiz, sonsuza kadar.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-globe"></i>
+        <h3>Özel Alt Alan Adı</h3>
+        <p>Her projene <strong>projen.girisi.dev</strong> gibi güzel bir adres veriyoruz.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Otomatik HTTPS</h3>
+        <p>Tüm siteler otomatik SSL sertifikası ile güvenli yayınlanır.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-code-branch"></i>
+        <h3>Branch & PR Preview</h3>
+        <p>Her branch ve pull request için otomatik preview URL’s</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-lock"></i>
+        <h3>Gizli Projeler</h3>
+        <p>İstersen projelerini sadece sen görebilirsin (private mode).</p>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="nasil-calisir">
+      <h2>Nasıl Çalışır?</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>GitHub ile Giriş Yap</h3>
+          <p>Tek tıkla GitHub hesabınla bağlan.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Repoyu Seç</h3>
+          <p>Deploy etmek istediğin statik site reposunu seç.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Push Yap, Canlı Olsun!</h3>
+          <p>Her push’ta otomatik olarak yeni.girisi.dev adresinde yayınlanır.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Girisi.dev – Yazılımcıların ücretsiz deploy platformu</p>
+    <div class="footer-links" style="margin: 2rem 0;">
+      <a href="mailto:info@girisi.dev">info@girisi.dev</a>
+      <a href="/dmca">DMCA Bildirim</a>
+      <a href="/privacy">Gizlilik Politikası</a>
+      <a href="/terms">Kullanım Koşulları</a>
+    </div>
+    <p style="margin-top:2rem; font-size:0.9rem;">
+      Her türlü soru, öneri ve DMCA şikayeti için: <strong>info@girisi.dev</strong>
+    </p>
+  </footer>
+
+</body>
+</html>
